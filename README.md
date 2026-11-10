@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/laravel-cognito-architecture.svg" alt="Laravel AWS Cognito Authentication Architecture" width="100%" style="border-radius: 8px;">
+</p>
+
 # 🔐 LAMP AWS Cognito Authentication
 
 > Enterprise-grade authentication and session management in Laravel 12 integrated with AWS Cognito User Pools and the LAMP stack.
@@ -73,26 +77,6 @@ sequenceDiagram
     Cognito-->>Laravel: 7. Return verified JWT token payload
     Laravel-->>User: 8. Establish session and redirect to /dashboard
     User->>Laravel: 9. Access protected routes (/dashboard)
-```
-
----
-
-## 🧩 Architectural Overview (Text Reference)
-
-```text
-+---------------------+                       +-------------------------------+
-|                     |   1. GET /login       |                               |
-|   User / Browser    | --------------------> |     Laravel Backend (LAMP)    |
-|                     | <-------------------- |                               |
-+---------------------+   2. 302 Redirect to  +---------------+---------------+
-           |                 Cognito Domain                   |
-           |                                                  |
-           v                                                  v
-+------------------------------------+        +-------------------------------+
-|     AWS Cognito Hosted UI          |        |     Protected Dashboard       |
-|  - Login, Register, Forgot Password|        |  - Session-guarded routes     |
-|  - MFA Challenge & Code Issuance   |        |  - Seamless Logout flow       |
-+------------------------------------+        +-------------------------------+
 ```
 
 ---
@@ -184,6 +168,8 @@ lamp-cognito-auth/
 │       └── Controllers/
 │           ├── CognitoController.php  # Cognito OAuth redirect & callback handler
 │           └── Controller.php
+├── assets/
+│   └── laravel-cognito-architecture.svg # Architecture diagram image
 ├── config/
 │   ├── auth.php                       # Authentication guards & providers
 │   └── services.php                   # Third-party service credentials
@@ -198,6 +184,7 @@ lamp-cognito-auth/
 ├── .env.example                       # Cognito configuration template
 ├── composer.json                      # PHP packages and dependencies
 ├── package.json                       # Frontend assets configuration
+├── LICENSE                            # MIT License
 └── README.md                          # Documentation & Architecture Diagrams
 ```
 

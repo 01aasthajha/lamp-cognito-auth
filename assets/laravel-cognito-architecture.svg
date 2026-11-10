@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 560" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#151e32" />
+    </linearGradient>
+
+    <!-- Card Gradients -->
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="laravelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d1519" />
+      <stop offset="100%" stop-color="#190d10" />
+    </linearGradient>
+
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2b1d0c" />
+      <stop offset="100%" stop-color="#171007" />
+    </linearGradient>
+
+    <!-- Filters for Glow & Shadows -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <filter id="glowLaravel" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#FF2D20" flood-opacity="0.4" />
+    </filter>
+
+    <filter id="glowAWS" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#FF9900" flood-opacity="0.4" />
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#FF4438" />
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#FF9900" />
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#38BDF8" />
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#10B981" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1050" height="560" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Title & Subtitle Banner -->
+  <g transform="translate(50, 42)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#F8FAFC" letter-spacing="0.5">
+      LAMP Stack &amp; AWS Cognito Authentication Architecture
+    </text>
+    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#94A3B8">
+      OAuth 2.0 / OpenID Connect Authorization Code Grant Flow with Laravel 12 &amp; Cognito User Pools
+    </text>
+  </g>
+
+  <!-- ================= TIER 1: CLIENT / BROWSER ================= -->
+  <g transform="translate(50, 100)">
+    <rect width="250" height="410" rx="12" fill="url(#clientGrad)" stroke="#475569" stroke-width="1.5" filter="url(#dropShadow)" />
+    
+    <!-- Tier Header -->
+    <rect width="250" height="42" rx="12" fill="#334155" />
+    <rect y="30" width="250" height="12" fill="#334155" />
+    <circle cx="20" cy="21" r="5" fill="#EF4444" />
+    <circle cx="34" cy="21" r="5" fill="#F59E0B" />
+    <circle cx="48" cy="21" r="5" fill="#10B981" />
+    <text x="70" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+      Client Tier (Browser)
+    </text>
+
+    <!-- Client Sub-elements -->
+    <!-- User Actor Box -->
+    <g transform="translate(20, 65)">
+      <rect width="210" height="85" rx="8" fill="#1e293b" stroke="#64748B" stroke-width="1" />
+      <text x="15" y="28" font-family="sans-serif" font-size="14" font-weight="600" fill="#F1F5F9">👤 User / Candidate</text>
+      <text x="15" y="50" font-family="sans-serif" font-size="11" fill="#94A3B8">• Visits /login route</text>
+      <text x="15" y="68" font-family="sans-serif" font-size="11" fill="#94A3B8">• Enters login credentials</text>
+    </g>
+
+    <!-- Browser Session Box -->
+    <g transform="translate(20, 175)">
+      <rect width="210" height="100" rx="8" fill="#1e293b" stroke="#64748B" stroke-width="1" />
+      <text x="15" y="28" font-family="sans-serif" font-size="13" font-weight="600" fill="#F1F5F9">🌐 Web Browser</text>
+      <text x="15" y="50" font-family="sans-serif" font-size="11" fill="#94A3B8">• Handles 302 Redirects</text>
+      <text x="15" y="68" font-family="sans-serif" font-size="11" fill="#94A3B8">• Receives Auth Code</text>
+      <text x="15" y="86" font-family="sans-serif" font-size="11" fill="#94A3B8">• Stores Session Cookie</text>
+    </g>
+
+    <!-- Protected View UI Box -->
+    <g transform="translate(20, 295)">
+      <rect width="210" height="90" rx="8" fill="#0f172a" stroke="#10B981" stroke-width="1.2" />
+      <text x="15" y="26" font-family="sans-serif" font-size="13" font-weight="600" fill="#34D399">💻 Dashboard View</text>
+      <text x="15" y="48" font-family="sans-serif" font-size="11" fill="#A7F3D0">"Cognito Login Successful ✅"</text>
+      <text x="15" y="68" font-family="sans-serif" font-size="11" fill="#6EE7B7">• /dashboard blade view</text>
+      <text x="15" y="84" font-family="sans-serif" font-size="10" fill="#94A3B8">Protected by Session Guard</text>
+    </g>
+  </g>
+
+  <!-- ================= TIER 2: LARAVEL (LAMP STACK) ================= -->
+  <g transform="translate(370, 100)">
+    <rect width="310" height="410" rx="12" fill="url(#laravelGrad)" stroke="#FF2D20" stroke-width="1.5" filter="url(#dropShadow)" />
+    
+    <!-- Tier Header -->
+    <rect width="310" height="42" rx="12" fill="#7F1D1D" />
+    <rect y="30" width="310" height="12" fill="#7F1D1D" />
+    <text x="20" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#FECACA">
+      🔴 Laravel 12 (LAMP Stack)
+    </text>
+
+    <!-- Web Server Box -->
+    <g transform="translate(20, 58)">
+      <rect width="270" height="48" rx="6" fill="#180a0d" stroke="#B91C1C" stroke-width="1" />
+      <text x="12" y="20" font-family="sans-serif" font-size="12" font-weight="600" fill="#FCA5A5">Web Server (Apache / PHP 8.2)</text>
+      <text x="12" y="38" font-family="sans-serif" font-size="10" fill="#94A3B8">Routes requests to public/index.php</text>
+    </g>
+
+    <!-- Router & Controller Box -->
+    <g transform="translate(20, 118)">
+      <rect width="270" height="120" rx="8" fill="#200d11" stroke="#EF4444" stroke-width="1" />
+      <text x="12" y="24" font-family="sans-serif" font-size="13" font-weight="700" fill="#F87171">CognitoController.php</text>
+      <text x="12" y="46" font-family="sans-serif" font-size="11" fill="#E2E8F0">1. login()</text>
+      <text x="28" y="62" font-family="sans-serif" font-size="10" fill="#94A3B8">Builds Hosted UI URL with client_id</text>
+      <text x="12" y="80" font-family="sans-serif" font-size="11" fill="#E2E8F0">2. callback(Request $request)</text>
+      <text x="28" y="96" font-family="sans-serif" font-size="10" fill="#94A3B8">Receives ?code= &amp; validates state</text>
+      <text x="12" y="112" font-family="sans-serif" font-size="11" fill="#E2E8F0">3. dashboard() &amp; logout()</text>
+    </g>
+
+    <!-- Session / DB Store -->
+    <g transform="translate(20, 252)">
+      <rect width="270" height="65" rx="6" fill="#180a0d" stroke="#B91C1C" stroke-width="1" />
+      <text x="12" y="22" font-family="sans-serif" font-size="12" font-weight="600" fill="#FCA5A5">Session Store (SQLite / MySQL)</text>
+      <text x="12" y="42" font-family="sans-serif" font-size="11" fill="#94A3B8">Maintains authenticated user session</text>
+      <text x="12" y="56" font-family="sans-serif" font-size="10" fill="#94A3B8">Stores auth credentials securely</text>
+    </g>
+
+    <!-- Blade & Vite Assets -->
+    <g transform="translate(20, 330)">
+      <rect width="270" height="60" rx="6" fill="#180a0d" stroke="#B91C1C" stroke-width="1" />
+      <text x="12" y="22" font-family="sans-serif" font-size="12" font-weight="600" fill="#FCA5A5">Blade Views + Vite Frontend</text>
+      <text x="12" y="44" font-family="sans-serif" font-size="10" fill="#94A3B8">TailwindCSS, instrument-sans typography</text>
+    </g>
+  </g>
+
+  <!-- ================= TIER 3: AWS COGNITO ================= -->
+  <g transform="translate(750, 100)">
+    <rect width="250" height="410" rx="12" fill="url(#awsGrad)" stroke="#FF9900" stroke-width="1.5" filter="url(#dropShadow)" />
+    
+    <!-- Tier Header -->
+    <rect width="250" height="42" rx="12" fill="#78350F" />
+    <rect y="30" width="250" height="12" fill="#78350F" />
+    <text x="20" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#FDE68A">
+      🟠 AWS Cloud (Cognito)
+    </text>
+
+    <!-- Cognito Hosted UI -->
+    <g transform="translate(20, 65)">
+      <rect width="210" height="95" rx="8" fill="#1a1106" stroke="#D97706" stroke-width="1" />
+      <text x="14" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#FBBF24">Cognito Hosted UI</text>
+      <text x="14" y="48" font-family="sans-serif" font-size="11" fill="#E2E8F0">Domain Auth Endpoint</text>
+      <text x="14" y="66" font-family="sans-serif" font-size="10" fill="#D1D5DB">• Managed Login Screen</text>
+      <text x="14" y="82" font-family="sans-serif" font-size="10" fill="#D1D5DB">• Sign up, Sign in &amp; MFA</text>
+    </g>
+
+    <!-- User Pool Box -->
+    <g transform="translate(20, 175)">
+      <rect width="210" height="105" rx="8" fill="#1a1106" stroke="#F59E0B" stroke-width="1" />
+      <text x="14" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#FBBF24">Cognito User Pool</text>
+      <text x="14" y="48" font-family="sans-serif" font-size="11" fill="#E2E8F0">Directory &amp; Security</text>
+      <text x="14" y="68" font-family="sans-serif" font-size="10" fill="#D1D5DB">• ap-south-1 User Pool</text>
+      <text x="14" y="84" font-family="sans-serif" font-size="10" fill="#D1D5DB">• App Client ID &amp; Secret</text>
+      <text x="14" y="98" font-family="sans-serif" font-size="10" fill="#D1D5DB">• Scopes: openid, email, phone</text>
+    </g>
+
+    <!-- OAuth Token Endpoint -->
+    <g transform="translate(20, 295)">
+      <rect width="210" height="90" rx="8" fill="#1a1106" stroke="#D97706" stroke-width="1" />
+      <text x="14" y="24" font-family="sans-serif" font-size="13" font-weight="700" fill="#FBBF24">Token Endpoint</text>
+      <text x="14" y="46" font-family="sans-serif" font-size="11" fill="#E2E8F0">/oauth2/token</text>
+      <text x="14" y="66" font-family="sans-serif" font-size="10" fill="#D1D5DB">• Issues Auth Code</text>
+      <text x="14" y="80" font-family="sans-serif" font-size="10" fill="#D1D5DB">• Returns RS256 JWTs</text>
+    </g>
+  </g>
+
+  <!-- ================= INTER-TIER CONNECTING FLOW ARROWS ================= -->
+  <!-- 1. User -> Laravel (GET /login) -->
+  <path d="M 230 180 L 370 180" stroke="#FF4438" stroke-width="2.5" fill="none" marker-end="url(#arrowRed)" />
+  <rect x="250" y="158" width="100" height="20" rx="4" fill="#0f172a" stroke="#FF2D20" stroke-width="1" />
+  <text x="256" y="172" font-family="sans-serif" font-size="10" font-weight="600" fill="#FECACA">1. GET /login</text>
+
+  <!-- 2. Laravel -> Hosted UI (302 Redirect) -->
+  <path d="M 680 180 L 750 180" stroke="#FF9900" stroke-width="2.5" fill="none" marker-end="url(#arrowOrange)" />
+  <rect x="670" y="158" width="95" height="20" rx="4" fill="#171007" stroke="#FF9900" stroke-width="1" />
+  <text x="675" y="172" font-family="sans-serif" font-size="10" font-weight="600" fill="#FDE68A">2. 302 Redirect</text>
+
+  <!-- 3. Cognito -> Browser (Redirect with Auth Code) -->
+  <path d="M 750 260 L 680 260 L 680 260 L 300 260" stroke="#38BDF8" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowBlue)" />
+  <rect x="470" y="248" width="130" height="20" rx="4" fill="#0f172a" stroke="#38BDF8" stroke-width="1" />
+  <text x="476" y="262" font-family="sans-serif" font-size="10" font-weight="600" fill="#BAE6FD">3. Auth Code (302)</text>
+
+  <!-- 4. Browser -> Laravel (GET /auth/callback?code=...) -->
+  <path d="M 230 280 L 370 280" stroke="#10B981" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)" />
+  <rect x="240" y="278" width="120" height="20" rx="4" fill="#0f172a" stroke="#10B981" stroke-width="1" />
+  <text x="246" y="292" font-family="sans-serif" font-size="10" font-weight="600" fill="#A7F3D0">4. /auth/callback</text>
+
+  <!-- 5. Laravel -> Browser (Render Dashboard) -->
+  <path d="M 370 395 L 260 395" stroke="#10B981" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)" />
+  <rect x="270" y="385" width="90" height="20" rx="4" fill="#0f172a" stroke="#10B981" stroke-width="1" />
+  <text x="275" y="399" font-family="sans-serif" font-size="10" font-weight="600" fill="#A7F3D0">5. Dashboard</text>
+</svg>
